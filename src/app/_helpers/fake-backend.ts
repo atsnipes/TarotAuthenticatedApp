@@ -28,14 +28,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 });
 
                 if (filteredUsers.length) {
-                    // if login details are valid return 200 OK with user details and fake jwt token
+                    // if login details are valid return 200 OK with user details and jwt token
                     let user = filteredUsers[0];
                     let body = {
                         id: user.id,
                         username: user.username,
                         firstName: user.firstName,
                         lastName: user.lastName,
-                        token: 'fake-jwt-token'
+                        token: 'PS4 vr Goggles'
                     };
 
                     return Observable.of(new HttpResponse({ status: 200, body: body }));

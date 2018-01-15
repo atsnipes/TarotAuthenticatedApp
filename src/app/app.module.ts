@@ -1,12 +1,13 @@
 ﻿import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // used to create fake backend
 import { fakeBackendProvider } from './_helpers/index';
 
 import { AppComponent }  from './app.component';
+import { Router }   from '@angular/router';
 import { routing }        from './app.routing';
 
 import { AlertComponent } from './_directives/index';
@@ -16,20 +17,33 @@ import { AlertService, AuthenticationService, UserService } from './_services/in
 import { HomeComponent } from './home/index';
 import { LoginComponent } from './login/index';
 import { RegisterComponent } from './register/index';
+import { EditTarotFormComponent } from "./editTarotForm/editTarotForm.component";
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatFormFieldModule } from '@angular/material';
+import { MatInputModule, MatButtonModule, MatSelectModule } from '@angular/material';
+
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        routing
+        routing,
+        ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatButtonModule,
+        MatSelectModule,
     ],
     declarations: [
         AppComponent,
         AlertComponent,
         HomeComponent,
         LoginComponent,
-        RegisterComponent
+        RegisterComponent,
+        EditTarotFormComponent
     ],
     providers: [
         AuthGuard,
@@ -48,4 +62,9 @@ import { RegisterComponent } from './register/index';
     bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+    // Diagnostic only: inspect router configuration
+    constructor(router: Router) {
+        console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+    }
+}

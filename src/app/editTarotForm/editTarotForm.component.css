@@ -1,0 +1,36 @@
+.edit-form-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.edit-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
+.edit-full-width {
+  width: 100%;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn {
+  top: 32px;
+}
+
+.left {
+  width: 100px; /* or leave it undefined */
+}
+
+.right {
+  flex-grow: 1;
+}
